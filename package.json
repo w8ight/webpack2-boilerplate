@@ -1,0 +1,23 @@
+{
+  "name": "webpack2-boilerplate",
+  "version": "1.0.0",
+  "description": "Clean webpack 2 setup for fast start a new project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w8ight/webpack2-boilerplate.git"
+  },
+  "author": "waka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/w8ight/webpack2-boilerplate/issues"
+  },
+  "homepage": "https://github.com/w8ight/webpack2-boilerplate#readme",
+  "dependencies": {
+    "webpack": "^2.2.1"
+  }
+}
