@@ -4,9 +4,11 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HtmlWebpackPluginConfigured = new HtmlWebpackPlugin({
-    template: __dirname + '/src/templates/index.html',
+    template: __dirname + '/src/templates/index.ejs',
     filename: 'index.html',
-    inject: 'body'
+    inject: 'body',
+    title: 'Webpack 2 Boilerplate',
+    rootId: 'root'
 });
 
 module.exports = {
