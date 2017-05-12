@@ -1,22 +1,22 @@
 import React from 'react';
-const {PropTypes} = React;
+import regexLib from '../utils/regexLib';
 
 class App extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            counter: 2
+        };
     }
 
     render() {
         return (
             <div>
-                <h2>Welcome to the clean webpack 2 boilerplate!</h2>
+                <h2 onClick={() => this.setState({counter: this.state.counter + 1})}>Welcome to the clean webpack {this.state.counter} boilerplate!</h2>
             </div>
         )
     }
 }
-
-App.propTypes = {};
 
 export default App;

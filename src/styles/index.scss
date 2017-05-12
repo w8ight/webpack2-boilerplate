@@ -2,4 +2,11 @@ $body-background: tomato;
 
 body {
     background: $body-background;
+    color: darken($body-background, 20%);
+    text-align: center;
+    display: flex;
+}
+
+#root {
+    margin: auto auto;
 }

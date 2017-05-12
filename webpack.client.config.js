@@ -1,20 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const HtmlWebpackPluginConfigured = new HtmlWebpackPlugin({
-    template: __dirname + '/src/templates/index.ejs',
-    filename: 'index.html',
-    inject: 'body',
-    title: 'Webpack 2 Boilerplate',
-    rootId: 'root'
-});
+// const HtmlWebpackPluginConfigured = new HtmlWebpackPlugin({
+//     template: __dirname + '/src/templates/index.ejs',
+//     filename: 'index.html',
+//     inject: 'body',
+//     title: 'Webpack 2 Boilerplate',
+//     rootId: 'root',
+//     body: ''
+// });
 
 module.exports = {
     context: path.resolve(__dirname, './src'),
     entry: {
-        app: './app.js'
+        app: './app.js',
     },
     output: {
         path: path.resolve(__dirname, './dist'),
@@ -24,13 +25,12 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['env', 'react', 'stage-0'],
-                        plugins: []
-                    }
+                // exclude: /(node_modules|bower_components)/,
+                include: path.resolve(__dirname, './src'),
+                loader: 'babel-loader',
+                options: {
+                    presets: ['env', 'react', 'stage-0'],
+                    plugins: ['transform-runtime']
                 }
             },
             {
@@ -43,6 +43,6 @@ module.exports = {
     },
     plugins: [
         new ExtractTextPlugin('styles.css'),
-        HtmlWebpackPluginConfigured
+        // HtmlWebpackPluginConfigured,
     ]
 };
