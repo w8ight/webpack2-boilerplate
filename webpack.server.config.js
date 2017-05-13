@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const config = require('config');
 
 module.exports = {
     context: path.resolve(__dirname, './src'),
@@ -11,6 +12,9 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         filename: '[name].js'
     },
+    plugins: [
+        new webpack.DefinePlugin({"__CONFIG__": JSON.stringify(config)}),
+    ],
     module: {
         rules: [
             {

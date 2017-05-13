@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const config = require('config');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -42,6 +43,9 @@ module.exports = {
             }]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "__CONFIG__": JSON.stringify(config),
+        }),
         new ExtractTextPlugin('styles.css'),
         // HtmlWebpackPluginConfigured,
     ]
